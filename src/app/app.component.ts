@@ -1,4 +1,4 @@
-import { Component, inject, PlatformRef } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Event, NavigationEnd, NavigationError, NavigationStart, ResolveEnd, ResolveStart, Router, RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { APPTITLE } from './utils/consts';
