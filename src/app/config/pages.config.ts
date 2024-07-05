@@ -56,7 +56,7 @@ export const PAGES_IN_APP = {
         {
             path: "dashboard",
             loadComponent: () => import('@pages/dashboard-page/dashboard-page.component'),
-            title: `${APPTITLE} | Dashboard`,
+            title: "Dashboard",
             providers: []
         },
         'Dashboard'
@@ -65,7 +65,7 @@ export const PAGES_IN_APP = {
         {
             path: "teams",
             loadComponent: () => import('@pages/team-index-page/team-index-page.component'),
-            title: `${APPTITLE} | Teams`,
+            title: "Teams",
             providers: []
         },
         'Teams',
@@ -74,7 +74,7 @@ export const PAGES_IN_APP = {
         {
             path: "projects",
             loadComponent: () => import('@pages/project-index-page/project-index-page.component'),
-            title: `${APPTITLE} | Projects`,
+            title: "Projects",
             providers: [
                 { provide: GRID_DATA_SOURCE_TOKEN, useValue: new DynamicDataSource<PeriodicElement>(of(ELEMENT_DATA))},
                 { provide: GRID_DATA_STRUCTURE, useValue: signal(Structure)}
