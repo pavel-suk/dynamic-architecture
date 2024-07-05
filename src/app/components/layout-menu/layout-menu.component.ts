@@ -11,7 +11,7 @@ import { PAGES_IN_APP } from '../../config/pages.config';
   template: `
     <div class="ml-10 flex items-baseline space-x-4 menu">
       @for (page of pages; track page;) {
-        <a routerLink="/{{page.fullLink}}" routerLinkActive="menu-active-link" class="menu-link"> {{page.linkText}} </a>
+        <a routerLink="/{{page.fullLink}}" routerLinkActive="menu-link-active" class="menu-link"> {{page.linkText}} </a>
       }
     </div>
   `,
