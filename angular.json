@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "di-dynamic-table": {
+    "dynamic-architecture": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/di-dynamic-table",
+            "outputPath": "dist/dynamic-architecture",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "di-dynamic-table:build:production"
+              "buildTarget": "dynamic-architecture:build:production"
             },
             "development": {
-              "buildTarget": "di-dynamic-table:build:development"
+              "buildTarget": "dynamic-architecture:build:development"
             }
           },
           "defaultConfiguration": "development"
