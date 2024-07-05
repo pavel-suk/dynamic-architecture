@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { Event, NavigationEnd, NavigationError, NavigationStart, ResolveEnd, ResolveStart, Router, RouterOutlet } from '@angular/router';
+import { Component, inject, PlatformRef } from '@angular/core';
+import { ActivatedRoute, Event, NavigationEnd, NavigationError, NavigationStart, ResolveEnd, ResolveStart, Router, RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { APPTITLE } from './utils/consts';
 import { APP_STATE_TOKEN } from '@config';
@@ -20,6 +20,7 @@ export class AppComponent {
   protected readonly title = inject(Title);
 
   constructor() {
+
     this.router.events.subscribe({
       next: (event: Event) => {
         if (event instanceof NavigationStart) {
@@ -27,24 +28,33 @@ export class AppComponent {
         } else if (event instanceof ResolveStart) {
           // this.preloadService.showLoader();
         }
-
+  
         if (event instanceof NavigationEnd) {
-          setTimeout(() => {
-            this.APP_STATE.browserTitle.update(() => this.title.getTitle());
-            this.APP_STATE.pageTitle.update(() => this.title.getTitle().replace(APPTITLE+' - ', ''));
-          }, 0);
-         
+          this._setPageTitle(this.router.routerState.root);
           //this.preloadService.hideLoader();
         } else if (event instanceof NavigationError) {
           // this.preloadService.hideLoader();
         } else if (event instanceof ResolveEnd) {
-      
-
           // this.preloadService.hideLoader();
         }
-        console.log(event);
+        //console.log(event);
       },
     });
+  }
+
+  private _setPageTitle(activeRoute: ActivatedRoute) {
+    let route = activeRoute;
+    let routeTitle = '';
+    while (route!.firstChild) {
+      route = route.firstChild;
+    }
+
+    if (route.snapshot.title) {
+      routeTitle = route!.snapshot.title;
+    }
+
+    this.APP_STATE.browserTitle.update(() => routeTitle);
+    this.APP_STATE.pageTitle.update(() => routeTitle.replace(APPTITLE+' | ', ''));
   }
 
 }

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { APP_ROUTES } from '@config';
+import { APP_ROUTES, APP_STATE_TOKEN } from '@config';
 
 
 @Component({
