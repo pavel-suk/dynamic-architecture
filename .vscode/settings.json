@@ -1,0 +1,18 @@
+{
+    "angular-schematics.schematicsDefaultOptions": {
+        "angular-*": {
+            "style": "scss",
+            "externalTemplate": true
+        },
+        "angular-component": {
+            "skipChangeDetectionOnPush": true
+        },
+        "angular-page": {
+            "skipChangeDetectionOnPush": true
+        }
+    },
+    "exportall.config.folderListener": [
+        "/src/app/pages",
+        "/src/app/config"
+    ],
+}

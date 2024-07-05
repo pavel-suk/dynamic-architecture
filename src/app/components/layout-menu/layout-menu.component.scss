@@ -1,0 +1,13 @@
+.menu {
+  &-active-link{
+    @apply bg-gray-900 text-white duration-100;
+  }
+
+  &-link:hover {
+    @apply bg-gray-700 text-white duration-100
+  }
+
+  &-link{
+    @apply rounded-md px-3 py-2 text-sm font-medium text-gray-300;
+  }
+}
