@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { LayoutMenuComponent } from '@components';
+import { LayoutMenuComponent } from '@components/layout-menu/layout-menu.component';
 import { APP_STATE_TOKEN } from '@config';
 
 @Component({
