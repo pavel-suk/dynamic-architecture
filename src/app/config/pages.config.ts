@@ -1,6 +1,6 @@
 
 import { PAGE } from "@models";
-import { GRID_DATA_SOURCE_TOKEN, GRID_DATA_STRUCTURE } from "./app-state.config";
+import { GRID_DATA_SOURCE_TOKEN, GRID_DATA_STRUCTURE_TOKEN } from "./app-state.config";
 import { DynamicDataSource } from "../models/dynamic-data-source";
 import { of } from "rxjs";
 import { inject, signal } from "@angular/core";
@@ -31,7 +31,7 @@ export const PAGES_IN_APP = {
                         return new DynamicDataSource<Team>(of(inject(MockDataService).getTeams()))
                     }
                 },
-                { provide: GRID_DATA_STRUCTURE, useValue: signal(TeamGrid) }
+                { provide: GRID_DATA_STRUCTURE_TOKEN, useValue: signal(TeamGrid) }
             ]
         },
         'Teams',
@@ -47,7 +47,7 @@ export const PAGES_IN_APP = {
                         return new DynamicDataSource<Project>(of(inject(MockDataService).getProjects()))
                     }
                 },
-                { provide: GRID_DATA_STRUCTURE, useValue: signal(ProjectGrid) }
+                { provide: GRID_DATA_STRUCTURE_TOKEN, useValue: signal(ProjectGrid) }
             ]
         },
         'Projects',

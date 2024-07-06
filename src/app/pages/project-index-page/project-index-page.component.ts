@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { DynamicGridFilterComponent } from '@components/dynamic-grid-filter/dynamic-grid-filter.component';
 import { DynamicGridComponent } from '@components/dynamic-grid/dynamic-grid.component';
-import { GRID_DATA_STRUCTURE } from '@config';
+import { GRID_DATA_STRUCTURE_TOKEN } from '@config';
 
 @Component({
   selector: 'app-project-index-page',
@@ -21,7 +21,7 @@ import { GRID_DATA_STRUCTURE } from '@config';
 })
 export default class ProjectIndexPageComponent {
 
-  protected readonly structure = inject(GRID_DATA_STRUCTURE);
+  protected readonly structure = inject(GRID_DATA_STRUCTURE_TOKEN);
 
   protected readonly isBudgetVisible = computed(() => {
     const columns = this.structure();
