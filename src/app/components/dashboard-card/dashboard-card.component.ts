@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 import { DynamicGridComponent } from '@components/dynamic-grid/dynamic-grid.component';
 import { DASHBOARD_CARD_TOKEN, GRID_DATA_SOURCE_TOKEN } from '@config';
 
@@ -8,6 +9,7 @@ import { DASHBOARD_CARD_TOKEN, GRID_DATA_SOURCE_TOKEN } from '@config';
   standalone: true,
   imports: [
     DynamicGridComponent,
+    MatCardModule,
   ],
   templateUrl: './dashboard-card.component.html',
   styleUrl: './dashboard-card.component.scss',

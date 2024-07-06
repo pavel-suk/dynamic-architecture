@@ -15,9 +15,7 @@ import { ProjectCardGrid } from './project.card.grid';
 @Component({
   selector: 'app-dashboard-page',
   standalone: true,
-  imports: [
-    RouterLink, MatCardModule
-  ],
+  imports: [],
   templateUrl: './dashboard-page.component.html',
   styleUrl: './dashboard-page.component.scss',
 })
@@ -31,9 +29,7 @@ export default class DashboardPageComponent implements AfterViewInit {
 
   protected readonly projectData = signal<DashboardCardViewmodel>({ page: PAGES_IN_APP.PROJECTS});
 
-  @ViewChild('teamcard', { read: ViewContainerRef }) teamcard!: ViewContainerRef;
-
-  @ViewChild('projectcard', { read: ViewContainerRef }) projectcard! : ViewContainerRef;
+  @ViewChild('cards', { read: ViewContainerRef }) cards!: ViewContainerRef;
 
   ngAfterViewInit(): void {
     let teaminjector = Injector.create([
@@ -44,7 +40,7 @@ export default class DashboardPageComponent implements AfterViewInit {
       { provide: GRID_DATA_STRUCTURE_TOKEN, useValue: signal(TeamsCardGrid) }
     ], this.injector);
     
-    this.teamcard.createComponent(DashboardCardComponent, { injector: teaminjector });
+    this.cards.createComponent(DashboardCardComponent, { injector: teaminjector });
 
     let projectinjector = Injector.create([
       { provide: DASHBOARD_CARD_TOKEN, useValue: this.projectData},
@@ -54,6 +50,6 @@ export default class DashboardPageComponent implements AfterViewInit {
       { provide: GRID_DATA_STRUCTURE_TOKEN, useValue: signal(ProjectCardGrid) }
     ], this.injector);
     
-    this.projectcard.createComponent(DashboardCardComponent, { injector: projectinjector });
+    this.cards.createComponent(DashboardCardComponent, { injector: projectinjector });
   } 
 }
