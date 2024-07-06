@@ -1,7 +1,20 @@
 <mat-card appearance="outlined">
     <mat-card-content>
         <app-dynamic-grid>
+            <section grid-header class="flex gap-4 items-center">
+                <app-dynamic-grid-filter></app-dynamic-grid-filter>
 
+                <button mat-flat-button (click)="toggleVisibleBudgetColumns(!isBudgetVisible())">
+                    @if(isBudgetVisible()) {
+                        Hide budget
+                    } @else {
+                        Show budget
+                    }
+
+                </button>
+                
+                
+            </section>
         </app-dynamic-grid>
     </mat-card-content>
 </mat-card>

@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, computed, inject, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
@@ -19,7 +18,6 @@ import { GRID_DATA_SOURCE_TOKEN, GRID_DATA_STRUCTURE } from '@config';
   styleUrl: './dynamic-grid.component.scss',
 })
 export class DynamicGridComponent implements AfterViewInit {
- // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
 
   dataSource = inject(GRID_DATA_SOURCE_TOKEN);
 
